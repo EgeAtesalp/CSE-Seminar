@@ -30,7 +30,15 @@
 \section{Introduction}
 
 \section{Log Compression}
-One crucial challenge to solve for automated logging is the excessive amount of storage required to 
+One crucial challenge to solve for automated logging is the excessive amount of storage required for the automatically generated logs in a microservice enviroment. Large scale software systems can create logs in massive amounts, up to 50 gigabytes per hour \cite{SurveyAutomatedLogging}. Another element that must be taken to account is the fact that a very portion of the insight logs can offer can only be interpreted when the logging has been done and stored for long term analysis, which means that the logs should be kept most of the time for future analysis \cite{fastCompression}. Both of these aspects imply that the any potential automatation of logging in cloud based microservice enviroments would create sizeable log files that can overtime become impossible to store.
+
+The distributed nature of the microservices create another issue, which is that the log files created in an individual microservice are often stored in another centralized logging system, meaning there is a constant flow of log files in a microservice network \cite{losslessCompression}. Rapid and constant logging does not only demand large storage space, but also valuable network capacity, which can slow other operations in the system.
+
+Altough other ways of reducing size of log files can be implemented, such as filtering of redundant log files, log compression is generally the preffered methodolgy for various reasons\cite{losslessCompression}. 
+
+First of all, any kind of filtering implicitly creates data loss, since a portion of log events will not be parsed and analysed in the future. This can be trivial if the filtering is done correctly, however any mistake can potentially harm the accuracy of analysis\cite{losslessCompression}. Compression, on the other hand, is often lossless, meaning no data is lost after decompressing the compressed file before analysis. 
+
+
 
 
 
