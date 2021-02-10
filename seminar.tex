@@ -39,6 +39,8 @@ Altough other ways of reducing size of log files can be implemented, such as fil
 First of all, any kind of filtering implicitly creates data loss, since a portion of log events will not be parsed and analysed in the future. This can be trivial if the filtering is done correctly, however any mistake can potentially harm the accuracy of analysis\cite{losslessCompression}. Compression, on the other hand, is often lossless, meaning no data is lost after decompressing the compressed file before analysis. 
 
 
+Secondly, a structured standardization of logging for each individual process creates redundancy in the log file format. Skibi et al. \cite{fastCompression} describes how the majority of byte space used in log files consist of characters that are shared, and an efficent compression/decompession algorithm can potentially exploit this to lower file sizes. 
+
 
 
 
